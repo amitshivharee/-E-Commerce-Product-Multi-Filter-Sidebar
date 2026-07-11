@@ -5,7 +5,7 @@ const products = [
     category: "Electronics",
     price: 79999,
     rating: 5,
-    image: "https://picsum.photos/200?random=1",
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const products = [
     category: "Electronics",
     price: 69999,
     rating: 4,
-    image: "https://picsum.photos/200?random=2",
+    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const products = [
     category: "Electronics",
     price: 9999,
     rating: 4,
-    image: "https://picsum.photos/200?random=3",
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const products = [
     category: "Electronics",
     price: 65000,
     rating: 5,
-    image: "https://picsum.photos/200?random=4",
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const products = [
     category: "Apparel",
     price: 899,
     rating: 3,
-    image: "https://picsum.photos/200?random=5",
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const products = [
     category: "Apparel",
     price: 1999,
     rating: 4,
-    image: "https://picsum.photos/200?random=6",
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const products = [
     category: "Apparel",
     price: 2499,
     rating: 5,
-    image: "https://picsum.photos/200?random=7",
+    image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const products = [
     category: "Apparel",
     price: 1499,
     rating: 4,
-    image: "https://picsum.photos/200?random=8",
+    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const products = [
     category: "Footwear",
     price: 7999,
     rating: 5,
-    image: "https://picsum.photos/200?random=9",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ const products = [
     category: "Footwear",
     price: 5999,
     rating: 4,
-    image: "https://picsum.photos/200?random=10",
+    image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ const products = [
     category: "Footwear",
     price: 4999,
     rating: 4,
-    image: "https://picsum.photos/200?random=11",
+    image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80",
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ const products = [
     category: "Footwear",
     price: 6999,
     rating: 5,
-    image: "https://picsum.photos/200?random=12",
+    image: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=700&q=80",
   },
 ];
 
