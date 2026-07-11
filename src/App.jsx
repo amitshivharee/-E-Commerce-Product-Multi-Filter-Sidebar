@@ -23,9 +23,6 @@ function App() {
   // Sorting State
   const [sortBy, setSortBy] = useState("");
 
-  // Temporary (for debugging)
-  console.log(priceRange);
-
   const filteredProducts = products.filter((product) => {
   // Category Filter
   const categoryMatch =
@@ -42,7 +39,14 @@ function App() {
     product.rating >= minRating;
 
   return categoryMatch && priceMatch && ratingMatch;
-});
+  });
+
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortBy === "priceLowHigh") return a.price - b.price;
+    if (sortBy === "priceHighLow") return b.price - a.price;
+    if (sortBy === "topRated") return b.rating - a.rating;
+    return 0;
+  });
 
 const resetFilters = () => {
   setSelectedCategories([]);
@@ -57,30 +61,36 @@ const resetFilters = () => {
   setSortBy("");
 };
   return (
-    <div className="container">
-      <Sidebar
-        selectedCategories={selectedCategories}
-        setSelectedCategories={setSelectedCategories}
-        priceRange={priceRange}
-        setPriceRange={setPriceRange}
-        minRating={minRating}
-        setMinRating={setMinRating}
-      />
-
-      <div className="main-content">
-        <SortDropdown
-          sortBy={sortBy}
-          setSortBy={setSortBy}
+    <>
+      <header className="store-header">
+        <div className="brand"><span className="brand-mark">S</span>Selected</div>
+        <span className="header-note">Thoughtful finds, chosen for you</span>
+      </header>
+      <div className="container">
+        <Sidebar
+          selectedCategories={selectedCategories}
+          setSelectedCategories={setSelectedCategories}
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
+          minRating={minRating}
+          setMinRating={setMinRating}
         />
-{
-  filteredProducts.length > 0 ? (
-    <ProductGrid products={filteredProducts} />
-  ) : (
-   <NoProducts resetFilters={resetFilters} />
-  )
-}
+
+        <main className="main-content">
+          <div className="catalogue-intro">
+            <p className="eyebrow">Curated collection</p>
+            <h1>Find your next favourite.</h1>
+            <p>Explore everyday essentials and standout pieces.</p>
+          </div>
+          <SortDropdown sortBy={sortBy} setSortBy={setSortBy} count={sortedProducts.length} />
+          {sortedProducts.length > 0 ? (
+            <ProductGrid products={sortedProducts} />
+          ) : (
+            <NoProducts resetFilters={resetFilters} />
+          )}
+        </main>
       </div>
-    </div>
+    </>
   );
 }
 

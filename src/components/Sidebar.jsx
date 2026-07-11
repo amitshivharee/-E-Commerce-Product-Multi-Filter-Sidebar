@@ -33,143 +33,76 @@ function Sidebar({
   };
 
   return (
-    <div className="sidebar">
-
-      <h2>Filters</h2>
-
+    <aside className="sidebar">
+      <div className="filter-heading">
+        <h2>Filters</h2>
+        <span>Refine results</span>
+      </div>
+      <section className="filter-group">
       <h3>Category</h3>
-
+      <div className="filter-options">
       {categories.map((category) => (
         <div key={category}>
-          <label>
-
+          <label className="filter-option">
             <input
               type="checkbox"
               checked={selectedCategories.includes(category)}
               onChange={() => handleCategoryChange(category)}
             />
 
-            {category}
-
+            <span>{category}</span>
           </label>
         </div>
       ))}
-
+      </div>
+      </section>
+      <section className="filter-group">
       <h3>Price</h3>
-      
-
-<p>Min: ₹{priceRange.min}</p>
-
-<input
+      <div className="price-labels"><span>From <strong>₹{priceRange.min.toLocaleString("en-IN")}</strong></span><span>To <strong>₹{priceRange.max.toLocaleString("en-IN")}</strong></span></div>
+<input className="range-input"
   type="range"
   min="0"
   max="80000"
   step="500"
   value={priceRange.min}
   onChange={(e) =>
-    setPriceRange({
-      ...priceRange,
-      min: Number(e.target.value),
-    })
-  }
+  setPriceRange({
+    ...priceRange,
+    min: Math.min(Number(e.target.value), priceRange.max),
+  })
+}
 />
 
-<p>Max: ₹{priceRange.max}</p>
-
-<input
+<input className="range-input"
   type="range"
   min="0"
   max="80000"
   step="500"
   value={priceRange.max}
   onChange={(e) =>
-    setPriceRange({
-      ...priceRange,
-      max: Number(e.target.value),
-    })
-  }
+  setPriceRange({
+    ...priceRange,
+    max: Math.max(Number(e.target.value), priceRange.min),
+  })
+}
 />
-
+      </section>
+      <section className="filter-group">
       <h3>Rating</h3>
-      
-
-<label>
+      {[0, 1, 2, 3, 4, 5].map((rating) => (
+<label className="filter-option" key={rating}>
   <input
     type="radio"
     name="rating"
-    value="0"
-    checked={minRating === 0}
-    onChange={() => setMinRating(0)}
+    value={rating}
+    checked={minRating === rating}
+    onChange={() => setMinRating(rating)}
   />
-  All Ratings
+  {rating === 0 ? "All ratings" : `${rating} ★ & up`}
 </label>
-
-<br />
-
-<label>
-  <input
-    type="radio"
-    name="rating"
-    value="1"
-    checked={minRating === 1}
-    onChange={() => setMinRating(1)}
-  />
-  1 ★ & Up
-</label>
-
-<br />
-
-<label>
-  <input
-    type="radio"
-    name="rating"
-    value="2"
-    checked={minRating === 2}
-    onChange={() => setMinRating(2)}
-  />
-  2 ★ & Up
-</label>
-
-<br />
-
-<label>
-  <input
-    type="radio"
-    name="rating"
-    value="3"
-    checked={minRating === 3}
-    onChange={() => setMinRating(3)}
-  />
-  3 ★ & Up
-</label>
-
-<br />
-
-<label>
-  <input
-    type="radio"
-    name="rating"
-    value="4"
-    checked={minRating === 4}
-    onChange={() => setMinRating(4)}
-  />
-  4 ★ & Up
-</label>
-
-<br />
-
-<label>
-  <input
-    type="radio"
-    name="rating"
-    value="5"
-    checked={minRating === 5}
-    onChange={() => setMinRating(5)}
-  />
-  5 ★
-</label>
-
-    </div>
+      ))}
+      </section>
+    </aside>
   );
 }
 

@@ -1,7 +1,11 @@
-function SortDropdown({ sortBy, setSortBy }) {
+function SortDropdown({ sortBy, setSortBy, count }) {
   return (
     <div className="sort-container">
+      <span className="results-count"><strong>{count}</strong> {count === 1 ? "item" : "items"} found</span>
+      <div className="sort-control">
+        <label htmlFor="sort-products">Sort by</label>
       <select
+        id="sort-products"
         value={sortBy}
         onChange={(e) => setSortBy(e.target.value)}
       >
@@ -19,6 +23,7 @@ function SortDropdown({ sortBy, setSortBy }) {
           Top Rated First
         </option>
       </select>
+      </div>
     </div>
   );
 }

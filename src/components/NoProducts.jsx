@@ -4,7 +4,9 @@ function NoProducts({ resetFilters }) {
 
       <h2>No items match your criteria.</h2>
 
-      <button onClick={resetFilters}>
+      <p>Try broadening your filters to see more of the collection.</p>
+
+      <button className="reset-button" onClick={resetFilters}>
         Reset Filters
       </button>
 
